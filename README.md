@@ -43,7 +43,7 @@ export default defineConfig({
 
 ## Options
 
-See the exported `remarkAddTwoslashOptions` type.
+See the exported `RemarkAddTwoslashOptions` type.
 
 ### `excludes`
 

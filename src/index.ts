@@ -11,8 +11,7 @@ export interface RemarkAutoTwoslashOptions {
 }
 
 /**
- * @param param0 Automatically adds `twoslash` meta to code blocks in Markdown.
- * @returns
+ * Automatically adds `twoslash` meta to code blocks in Markdown.
  */
 export function remarkAutoTwoslash({
 	excludes = [],

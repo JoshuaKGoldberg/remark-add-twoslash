@@ -24,7 +24,7 @@
   "files": [
     "README.md"
   ],
-  "projectName": "remark-auto-twoslash",
+  "projectName": "remark-add-twoslash",
   "projectOwner": "JoshuaKGoldberg",
   "repoType": "github",
   "commitConvention": "angular"

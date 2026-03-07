@@ -3,7 +3,7 @@ import type { VFile } from "vfile";
 
 import { visit } from "unist-util-visit";
 
-export interface RemarkAutoTwoslashOptions {
+export interface remarkAddTwoslashOptions {
 	/**
 	 * Any number of file paths to exclude from twoslash injection.
 	 */
@@ -13,9 +13,7 @@ export interface RemarkAutoTwoslashOptions {
 /**
  * Automatically adds `twoslash` meta to code blocks in Markdown.
  */
-export function remarkAutoTwoslash({
-	excludes = [],
-}: RemarkAutoTwoslashOptions) {
+export function remarkAddTwoslash({ excludes = [] }: remarkAddTwoslashOptions) {
 	return function createTransformer() {
 		return function transformer(tree: Root, file: VFile): void {
 			const filePath = file.path || "";

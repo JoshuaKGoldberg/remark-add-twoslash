@@ -1,7 +1,6 @@
 import comments from "@eslint-community/eslint-plugin-eslint-comments/configs";
 import eslint from "@eslint/js";
 import markdown from "@eslint/markdown";
-import vitest from "@vitest/eslint-plugin";
 import jsdoc from "eslint-plugin-jsdoc";
 import jsonc from "eslint-plugin-jsonc";
 import n from "eslint-plugin-n";
@@ -13,10 +12,7 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 export default defineConfig(
-	globalIgnores(
-		["**/*.snap", "coverage", "lib", "node_modules", "pnpm-lock.yaml"],
-		"Global Ignores",
-	),
+	globalIgnores(["lib", "node_modules", "pnpm-lock.yaml"], "Global Ignores"),
 	{ linterOptions: { reportUnusedDisableDirectives: "error" } },
 	{
 		extends: [
@@ -48,6 +44,10 @@ export default defineConfig(
 			"object-shorthand": "error",
 			"operator-assignment": "error",
 
+			// https://github.com/import-js/eslint-plugin-import/issues/1810
+			"n/no-missing-import": "off",
+			"n/no-unresolved": "off",
+
 			// https://github.com/eslint-community/eslint-plugin-n/issues/472
 			"n/no-unpublished-bin": "off",
 		},
@@ -69,12 +69,6 @@ export default defineConfig(
 		extends: [tseslint.configs.disableTypeChecked],
 		files: ["**/*.md/*.ts"],
 		rules: { "n/no-missing-import": "off" },
-	},
-	{
-		extends: [vitest.configs.recommended],
-		files: ["**/*.test.*"],
-		rules: { "@typescript-eslint/no-unsafe-assignment": "off" },
-		settings: { vitest: { typecheck: true } },
 	},
 	{
 		extends: [yml.configs["flat/standard"], yml.configs["flat/prettier"]],

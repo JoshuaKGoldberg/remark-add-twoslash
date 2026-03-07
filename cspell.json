@@ -4,9 +4,9 @@
 		".all-contributorsrc",
 		".github",
 		"CHANGELOG.md",
-		"coverage",
 		"lib",
 		"node_modules",
 		"pnpm-lock.yaml"
-	]
+	],
+	"words": ["twoslash"]
 }

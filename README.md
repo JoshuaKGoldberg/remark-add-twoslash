@@ -1,7 +1,7 @@
 <h1 align="center">Remark Auto Twoslash</h1>
 
 <p align="center">
-	Automatically adds \`twoslash\` comments to code blocks in Markdown.
+	Automatically adds <code>twoslash</code> meta to code blocks in Markdown.
 	🎸
 </p>
 
@@ -12,7 +12,6 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 	<!-- prettier-ignore-end -->
 	<a href="https://github.com/JoshuaKGoldberg/remark-auto-twoslash/blob/main/.github/CODE_OF_CONDUCT.md" target="_blank"><img alt="🤝 Code of Conduct: Kept" src="https://img.shields.io/badge/%F0%9F%A4%9D_code_of_conduct-kept-21bb42" /></a>
-	<a href="https://codecov.io/gh/JoshuaKGoldberg/remark-auto-twoslash" target="_blank"><img alt="🧪 Coverage" src="https://img.shields.io/codecov/c/github/JoshuaKGoldberg/remark-auto-twoslash?label=%F0%9F%A7%AA%20coverage" /></a>
 	<a href="https://github.com/JoshuaKGoldberg/remark-auto-twoslash/blob/main/LICENSE.md" target="_blank"><img alt="📝 License: MIT" src="https://img.shields.io/badge/%F0%9F%93%9D_license-MIT-21bb42.svg" /></a>
 	<a href="http://npmjs.com/package/remark-auto-twoslash" target="_blank"><img alt="📦 npm version" src="https://img.shields.io/npm/v/remark-auto-twoslash?color=21bb42&label=%F0%9F%93%A6%20npm" /></a>
 	<img alt="💪 TypeScript: Strict" src="https://img.shields.io/badge/%F0%9F%92%AA_typescript-strict-21bb42.svg" />
@@ -24,16 +23,46 @@
 npm i remark-auto-twoslash
 ```
 
-```ts
-import { greet } from "remark-auto-twoslash";
+Add this Remark plugin to wherever you register Markdown/MDX plugins _before_ Expressive Code / Twoslash.
 
-greet("Hello, world! 💖");
+For example, in an Astro Starlight config:
+
+```ts
+// astro.config.ts
+import { defineConfig } from "astro/config";
+import { remarkAutoTwoslash } from "remark-auto-twoslash";
+
+export default defineConfig({
+	markdown: {
+		plugins: [remarkAutoTwoslash()],
+	},
+});
+```
+
+`twoslash` will be added to any <code>\`\`\`</code> code block whose language starts with `ts`.
+
+## Options
+
+See the exported `RemarkAutoTwoslashOptions` type.
+
+### `excludes`
+
+Any number of file paths to exclude from twoslash meta additions.
+
+For example, you might prefer to exclude files in a particular directory, and/or with a certain extension:
+
+```ts
+import { remarkAutoTwoslash } from "remark-auto-twoslash";
+
+remarkAutoTwoslash({
+	excludes: [/directory\/to\/ignore/, /\.extension\.mdx$/],
+});
 ```
 
 ## Development
 
 See [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md), then [`.github/DEVELOPMENT.md`](./.github/DEVELOPMENT.md).
-Thanks! 💖
+Thanks! 🎸
 
 ## Contributors
 

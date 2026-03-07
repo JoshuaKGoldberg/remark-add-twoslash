@@ -1,6 +1,6 @@
 {
 	"name": "remark-add-twoslash",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Automatically adds twoslash meta to code blocks in Markdown. 🎸",
 	"repository": {
 		"type": "git",

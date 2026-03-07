@@ -59,6 +59,11 @@ remarkAddTwoslash({
 });
 ```
 
+## Why?
+
+This is useful if you want to automatically add `twoslash` meta, but need to granularly configure which files receive it.
+For example, [Expressive Code Twoslash's `explicitTrigger`](https://twoslash.studiocms.dev/reference/configuration/#explicittrigger) can be based on code block content, but not file paths.
+
 ## Development
 
 See [`.github/CONTRIBUTING.md`](./.github/CONTRIBUTING.md), then [`.github/DEVELOPMENT.md`](./.github/DEVELOPMENT.md).
